@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">NUMAD22Fa_WanchunWu</string>
+    <string name="link_name" />
+    <string name="link_url" />
+    <string name="link_add_error" />
+    <string name="link_add_confirm" />
+    <string name="add_link" />
+    <string name="cancel" />
 </resources>

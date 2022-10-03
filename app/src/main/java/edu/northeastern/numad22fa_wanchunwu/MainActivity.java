@@ -1,38 +1,39 @@
 package edu.northeastern.numad22fa_wanchunwu;
-
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button button1= findViewById(R.id.button1);
-
-        button1.setOnClickListener(view -> Toast.makeText(getApplicationContext(),
-                "Wanchun Wu: wu.wan@northeastern.edu", Toast.LENGTH_LONG).show());
-
-        Button button = findViewById(R.id.button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openClickyActivity();
-            }
-        });
     }
-    public void openClickyActivity(){
-        Intent intent = new Intent(this, ClickyActivity.class);
-        startActivity(intent);
+
+    public void viewAbout(View view) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+
+
     }
+
+    public void onClick(View view)
+    {
+        switch (view.getId()) {
+            case R.id.clickybutton:
+                Intent intent_clicky = new Intent(MainActivity.this, ClickyActivity.class);
+                startActivity(intent_clicky);
+                break;
+            case R.id.linkcollectorbutton:
+                Intent intent_linkcollect = new Intent(MainActivity.this, LinkCollectorActivity.class);
+                startActivity(intent_linkcollect);
+                break;
+        }
+
+    }
+
 }
