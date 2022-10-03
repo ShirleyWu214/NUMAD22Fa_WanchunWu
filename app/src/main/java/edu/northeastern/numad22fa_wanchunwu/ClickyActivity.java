@@ -1,6 +1,8 @@
 package edu.northeastern.numad22fa_wanchunwu;
 
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ClickyActivity extends AppCompatActivity {
 
+    Button back;
     Button A;
     Button B;
     Button C;
@@ -20,11 +23,12 @@ public class ClickyActivity extends AppCompatActivity {
 
     String pressedText;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clicky);
-
+        back = findViewById(R.id.Previous);
         A = findViewById(R.id.A);
         B = findViewById(R.id.B);
         C = findViewById(R.id.C);
@@ -38,6 +42,15 @@ public class ClickyActivity extends AppCompatActivity {
         if( pressedText != null) {
             setPressedValue(pressedText);
         }
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClickyActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // OnClicks for each button
@@ -72,17 +85,15 @@ public class ClickyActivity extends AppCompatActivity {
     }
 
     // Set Pressed: text
-    @SuppressLint("SetTextI18n")
     private void setPressedValue(String val) {
-        TextView tv = findViewById(R.id.pressedButtonName);
+        TextView tv = (TextView) findViewById(R.id.pressedButtonName);
         tv.setText("Pressed: " + val);
     }
+
+
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("pressedText",pressedText);
     }
 }
-
-
-

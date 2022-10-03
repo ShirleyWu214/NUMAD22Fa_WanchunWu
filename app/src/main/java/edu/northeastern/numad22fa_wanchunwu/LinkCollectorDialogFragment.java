@@ -1,13 +1,12 @@
 package edu.northeastern.numad22fa_wanchunwu;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 public class LinkCollectorDialogFragment extends DialogFragment {
@@ -18,8 +17,6 @@ public class LinkCollectorDialogFragment extends DialogFragment {
     }
     LinkCollectorDialogListener listener;
 
-    @NonNull
-    @SuppressLint("InflateParams")
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -30,13 +27,22 @@ public class LinkCollectorDialogFragment extends DialogFragment {
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.fragment_link_collector_dialog, null))
                 // Add action buttons
-                .setPositiveButton(R.string.add_link, (dialog, id) -> listener.onDialogPositiveClick(LinkCollectorDialogFragment.this))
-                .setNegativeButton(R.string.cancel, (dialog, id) -> listener.onDialogNegativeClick(LinkCollectorDialogFragment.this));
+                .setPositiveButton(R.string.add_link, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        listener.onDialogPositiveClick(LinkCollectorDialogFragment.this);
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        listener.onDialogNegativeClick(LinkCollectorDialogFragment.this);
+                    }
+                });
         return builder.create();
     }
 
     @Override
-    public void onAttach(@NonNull Context context) {
+    public void onAttach(Context context) {
         super.onAttach(context);
         try {
             listener = (LinkCollectorDialogListener) context;

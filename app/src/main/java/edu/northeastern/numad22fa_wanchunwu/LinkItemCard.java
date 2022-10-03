@@ -1,5 +1,8 @@
 package edu.northeastern.numad22fa_wanchunwu;
 
+import android.content.Intent;
+import android.net.Uri;
+
 public class LinkItemCard {
     private final String linkName;
     private final String linkURL;

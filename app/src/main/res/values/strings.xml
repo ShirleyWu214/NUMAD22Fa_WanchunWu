@@ -17,4 +17,11 @@
     <string name="f">F</string>
     <string name="e">E</string>
     <string name="pressed">pressed: -</string>
+    <string name="about" />
+    <string name="clickyclicky">ClickyClicky</string>
+    <string name="About">about</string>
+    <string name="pressed_button_text" />
+    <string name="previous" />
+    <string name="Previous">previous</string>
+    <string name="Pressed" />
 </resources>
