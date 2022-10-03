@@ -1,13 +1,11 @@
 package edu.northeastern.numad22fa_wanchunwu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -74,8 +72,9 @@ public class ClickyActivity extends AppCompatActivity {
     }
 
     // Set Pressed: text
+    @SuppressLint("SetTextI18n")
     private void setPressedValue(String val) {
-        TextView tv = (TextView) findViewById(R.id.pressedButtonName);
+        TextView tv = findViewById(R.id.pressedButtonName);
         tv.setText("Pressed: " + val);
     }
     @Override

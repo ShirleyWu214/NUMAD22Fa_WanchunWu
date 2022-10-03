@@ -6,4 +6,15 @@
     <string name="link_add_confirm" />
     <string name="add_link" />
     <string name="cancel" />
+    <string name="back">Back</string>
+    <string name="aboutme">ABOUTME</string>
+    <string name="link_collector">Link Collector</string>
+    <string name="clicky_clicky">CLICKY CLICKY</string>
+    <string name="a">A</string>
+    <string name="b">B</string>
+    <string name="c">C</string>
+    <string name="d">D</string>
+    <string name="f">F</string>
+    <string name="e">E</string>
+    <string name="pressed">pressed: -</string>
 </resources>

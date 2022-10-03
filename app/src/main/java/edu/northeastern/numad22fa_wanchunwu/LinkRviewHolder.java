@@ -13,14 +13,11 @@ public class LinkRviewHolder extends RecyclerView.ViewHolder {
         linkName = linkItemView.findViewById(R.id.link_name);
         linkURL = linkItemView.findViewById(R.id.link_url);
 
-        linkItemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (linkListener != null) {
-                    int position = getLayoutPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        linkListener.onLinkItemClick(linkURL.getText().toString());
-                    }
+        linkItemView.setOnClickListener(v -> {
+            if (linkListener != null) {
+                int position = getLayoutPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    linkListener.onLinkItemClick(linkURL.getText().toString());
                 }
             }
         });

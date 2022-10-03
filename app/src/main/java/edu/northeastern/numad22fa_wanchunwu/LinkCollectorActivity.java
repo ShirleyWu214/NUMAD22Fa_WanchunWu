@@ -28,8 +28,6 @@ public class LinkCollectorActivity extends AppCompatActivity implements LinkColl
     private final ArrayList<LinkItemCard> linkList = new ArrayList<>();
     private RecyclerView linkRecyclerView;
     private LinkRviewAdapter linkRviewAdapter;
-    private RecyclerView.LayoutManager linkRLayoutManger;
-    private FloatingActionButton addLinkButton;
 
     private static final String KEY_OF_LINK = "KEY_OF_LINK";
     private static final String NUMBER_OF_LINKS = "NUMBER_OF_LINKS";
@@ -40,29 +38,23 @@ public class LinkCollectorActivity extends AppCompatActivity implements LinkColl
         setContentView(R.layout.activity_linkcollector);
         init(savedInstanceState);
         back = findViewById(R.id.backbutton);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LinkCollectorActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        back.setOnClickListener(view -> {
+            Intent intent = new Intent(LinkCollectorActivity.this, MainActivity.class);
+            startActivity(intent);
         });
-        addLinkButton = findViewById(R.id.addLinkButton);
-        addLinkButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // use dialog for add link
-                startLinkCollectorDialog();
-            }
+        FloatingActionButton addLinkButton = findViewById(R.id.addLinkButton);
+        addLinkButton.setOnClickListener(v -> {
+            // use dialog for add link
+            startLinkCollectorDialog();
         });
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
             }
 
             @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 Toast.makeText(LinkCollectorActivity.this, "Delete link", Toast.LENGTH_SHORT).show();
                 int position = viewHolder.getLayoutPosition();
                 linkList.remove(position);
@@ -81,6 +73,7 @@ public class LinkCollectorActivity extends AppCompatActivity implements LinkColl
     public void onDialogPositiveClick(DialogFragment linkDialog) {
         Dialog addLinkDialog = linkDialog.getDialog();
 
+        assert addLinkDialog != null;
         String linkName = ((EditText) addLinkDialog.findViewById(R.id.link_name)).getText().toString();
         String linkURL = ((EditText) addLinkDialog.findViewById(R.id.link_url)).getText().toString();
 
@@ -129,6 +122,7 @@ public class LinkCollectorActivity extends AppCompatActivity implements LinkColl
                     String linkName = savedInstanceState.getString(KEY_OF_LINK + i + "0");
                     String linkURL = savedInstanceState.getString(KEY_OF_LINK + i + "1");
                     LinkItemCard linkItemCard = new LinkItemCard(linkName, linkURL);
+                    assert linkList != null;
                     linkList.add(linkItemCard);
                 }
             }
@@ -136,16 +130,13 @@ public class LinkCollectorActivity extends AppCompatActivity implements LinkColl
     }
 
     private void createRecyclerView() {
-        linkRLayoutManger = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager linkRLayoutManger = new LinearLayoutManager(this);
         linkRecyclerView = findViewById(R.id.link_collector_recycler_view);
         linkRecyclerView.setHasFixedSize(true);
         linkRviewAdapter = new LinkRviewAdapter(linkList);
-        LinkItemClickListener linkClickListener = new LinkItemClickListener() {
-            @Override
-            public void onLinkItemClick(String url) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
-            }
+        LinkItemClickListener linkClickListener = url -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
         };
         linkRviewAdapter.setOnLinkItemClickListener(linkClickListener);
         linkRecyclerView.setAdapter(linkRviewAdapter);

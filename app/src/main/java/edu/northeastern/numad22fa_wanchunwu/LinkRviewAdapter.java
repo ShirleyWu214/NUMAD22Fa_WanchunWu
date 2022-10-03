@@ -21,6 +21,7 @@ public class LinkRviewAdapter extends RecyclerView.Adapter<LinkRviewHolder>{
         this.linkListener = linkListener;
     }
 
+    @NonNull
     @Override
     public LinkRviewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.link_item_card, parent, false);
