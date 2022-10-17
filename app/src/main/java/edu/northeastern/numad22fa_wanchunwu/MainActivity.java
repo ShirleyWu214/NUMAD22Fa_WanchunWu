@@ -41,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent_linkcollect = new Intent(MainActivity.this, LinkCollectorActivity.class);
                 startActivity(intent_linkcollect);
                 break;
+            case R.id.primesbutton:
+                Intent intent_primes = new Intent(MainActivity.this, PrimeNumber.class);
+                startActivity(intent_primes);
+                break;
+            case R.id.locationID:
+                Intent intent_location = new Intent(MainActivity.this, LocationActivity.class);
+                startActivity(intent_location);
+                break;
         }
 
     }

@@ -24,4 +24,23 @@
     <string name="previous" />
     <string name="Previous">previous</string>
     <string name="Pressed" />
+    <string name="GetLocation">GetLocation</string>
+    <string name="Coordinates">Coordinates</string>
+    <string name="Location_access_denied">Deny</string>
+    <string name="Location">location</string>
+    <string name="findprimes">Find Primes</string>
+    <string name="location_string">Location</string>
+    <string name="high_accuracy_string">Get Location</string>
+    <string name="balanced_power_accuracy_string">Balanced Accuracy</string>
+    <string name="low_power_string">Lowest Accuracy</string>
+    <string name="no_power_string">Passive Request</string>
+    <string name="accuracy_selected_string">"Accuracy Selected: "</string>
+    <string name="default_accuracy_selected_string">Please select one accuracy</string>
+    <string name="location_description_string">Current Location in (Latitude, Longitude)</string>
+    <string name="location_accuracy_string">Accuracy</string>
+    <string name="latitude_string">Latitude</string>
+    <string name="longitude_string">Longitude</string>
+    <string name="total_travel_distance_description_string">Total Travel Distance in meters</string>
+    <string name="distance_string">Distance</string>
+    <string name="reset_distance_string">Reset Distance</string>
 </resources>

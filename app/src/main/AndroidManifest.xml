@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.northeastern.numad22fa_wanchunwu">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -29,6 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LinkCollectorActivity" />
+        <activity android:name=".PrimeNumber" />
+        <activity android:name=".LocationActivity" />
     </application>
 
 </manifest>
