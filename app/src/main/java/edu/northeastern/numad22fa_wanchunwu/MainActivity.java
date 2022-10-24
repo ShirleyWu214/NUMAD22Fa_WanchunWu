@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,9 +21,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    button = findViewById(R.id.button);
-    button.setOnClickListener(view -> Toast.makeText(getApplicationContext(),
-            "Wanchun Wu: wu.wan@northeastern.edu", Toast.LENGTH_SHORT).show());
+        Button findPrimesButton = findViewById(R.id.findPrimesMainID);
+        findPrimesButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FindPrimesActivity.class);
+            startActivity(intent);
+        });
+
+        button = findViewById(R.id.button);
+        button.setOnClickListener(view -> Toast.makeText(getApplicationContext(),
+                "Wanchun Wu: wu.wan@northeastern.edu", Toast.LENGTH_SHORT).show());
     }
 
     public void viewAbout(View view) {
@@ -41,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent_linkcollect = new Intent(MainActivity.this, LinkCollectorActivity.class);
                 startActivity(intent_linkcollect);
                 break;
-            case R.id.primesbutton:
-                Intent intent_primes = new Intent(MainActivity.this, PrimeNumber.class);
-                startActivity(intent_primes);
-                break;
+//            case R.id.findPrimesMainID:
+//                Intent intent_primes = new Intent(MainActivity.this, FindPrimesActivity.class);
+//                startActivity(intent_primes);
+//                break;
             case R.id.locationID:
                 Intent intent_location = new Intent(MainActivity.this, LocationActivity.class);
                 startActivity(intent_location);

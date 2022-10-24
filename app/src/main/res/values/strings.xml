@@ -43,4 +43,9 @@
     <string name="total_travel_distance_description_string">Total Travel Distance in meters</string>
     <string name="distance_string">Distance</string>
     <string name="reset_distance_string">Reset Distance</string>
+    <string name="find_primes_string">FIND PRIMES</string>
+    <string name="terminate_string">Terminate Search</string>
+    <string name="latest_found_prime_string">"Latest found prime number: "</string>
+    <string name="current_check_num_string">"Current check number: "</string>
+    <string name="pacifier_switch_string">Pacifier Switch</string>
 </resources>

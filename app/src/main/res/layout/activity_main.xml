@@ -20,13 +20,13 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
         android:layout_marginBottom="26dp"
         android:onClick="viewAbout"
         android:text="@string/aboutme"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/clickybutton"
-        app:layout_constraintStart_toStartOf="@+id/clickybutton"
+        app:layout_constraintEnd_toEndOf="@+id/clickybutton"
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -52,43 +52,47 @@
         android:id="@+id/linkcollectorbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="27dp"
         android:onClick="onClick"
         android:text="@string/link_collector"
-        app:layout_constraintBottom_toTopOf="@+id/primesbutton"
+        app:layout_constraintBottom_toTopOf="@+id/findPrimesMainID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="HardcodedText" />
+
+    <!--    <Button-->
+    <!--        android:id="@+id/primesbutton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:onClick="onClick"-->
+    <!--        android:text="@string/findprimes"-->
+    <!--        tools:ignore="HardcodedText"-->
+    <!--        tools:layout_editor_absoluteX="146dp"-->
+    <!--        tools:layout_editor_absoluteY="378dp" />-->
 
     <Button
-        android:id="@+id/primesbutton"
-        android:layout_width="wrap_content"
+        android:id="@+id/findPrimesMainID"
+        android:layout_width="148sp"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="@string/findprimes"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="372dp"
+        android:layout_marginEnd="132dp"
+        android:text="@string/find_primes_string"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681"
-        tools:ignore="HardcodedText" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/locationID"
         android:layout_width="148sp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="23dp"
         android:onClick="onClick"
         android:text="@string/location_string"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89" />
+        app:layout_constraintTop_toBottomOf="@+id/findPrimesMainID" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -116,10 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="455dp" />
+        app:layout_constraintGuide_begin="20dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -127,5 +128,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.01" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

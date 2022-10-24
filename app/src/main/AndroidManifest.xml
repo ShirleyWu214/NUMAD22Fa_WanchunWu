@@ -33,6 +33,7 @@
         <activity android:name=".LinkCollectorActivity" />
         <activity android:name=".PrimeNumber" />
         <activity android:name=".LocationActivity" />
+        <activity android:name=".FindPrimesActivity" />
     </application>
 
 </manifest>
